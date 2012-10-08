@@ -31,26 +31,32 @@ class Renderer
   end
   
   def render_attribute(thing)
-    @line << " " unless @first_unit
-    if thing.nil?
-      @line << ""
-    end
     
-    if thing.is_a?(Unit)
-      @line << quote((thing >> 'zil').scalar.to_i)      
-    elsif thing.respond_to?(:each)
-      thing.each do |other_thing|
-        self << other_thing
+    unless thing.nil?
+      
+      if thing.is_a?(Unit)
+        append_to_line(quote(thing >> 'zil').scalar.to_i)
+      elsif thing.respond_to?(:each)
+        thing.each do |other_thing|
+          self << other_thing
+        end
+      else
+        append_to_line(thing.to_s)
       end
-    else
-      @line << "" << thing.to_s
     end
-
-    @first_unit = false
+ 
     @line
   end
+  
     
   def line 
     @line
+  end
+  
+  private 
+  def append_to_line(value)
+    @line << " " unless @first_unit
+    @line << value
+    @first_unit = false
   end
 end
