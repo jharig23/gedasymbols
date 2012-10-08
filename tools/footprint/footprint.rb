@@ -1,3 +1,4 @@
+require 'ruby-units'
 
 require_relative 'lib/attr'
 require_relative 'lib/units'

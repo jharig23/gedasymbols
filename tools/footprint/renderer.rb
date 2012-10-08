@@ -1,14 +1,12 @@
 class Renderer
   include Helper
-
+  
   def initialize
     @line = ''
   end
 
-
   def render(element)
     element.render_with(self) if element.respond_to?(:render_with)
-
     @line
   end
 
@@ -21,35 +19,27 @@ class Renderer
     @line << "]"
   end
 
-
   def<<(thing)
     render_attribute(thing)
   end
 
   def render_attribute(thing)
-    
     unless thing.nil?
-      
       if thing.is_a?(Unit)
-        append_to_line(quote(thing >> 'zil').scalar.to_i)
-      puts ":#{val}"
-      @line << "#{val}"
-    elsif thing.is_a?(String)
-      @line << quote(thing)
+        val = (thing >> 'zil').scalar.to_i
+        append_to_line("#{val}")
+      elsif thing.is_a?(String)
+        append_to_line(quote(thing))
       elsif thing.respond_to?(:each)
-        thing.each do |other_thing|
-          self << other_thing
-        end
-    elsif thing.respond_to?(:render_with)
-      thing.render_with(self)
+        thing.each { |other_thing| render_attribute(other_thing) }
+      elsif thing.respond_to?(:render_with)
+        thing.render_with(self)
       else
         append_to_line(thing.to_s)
       end
     end
- 
     @line
   end
-  
     
   def line
     @line
