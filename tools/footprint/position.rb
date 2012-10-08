@@ -1,14 +1,9 @@
 class Position
   require 'ruby-units'
 
-  attr_accessor :x, :y
-  
-  def initialize (x = Unit("0mil"), y = Unit("0mil"))
-    self.x = x
-    self.y = y
-  end
+  attr x: Unit("0 mil"), y: Unit("0 mil")
 
-  def element_name
+ def element_name
     "Position"
   end
 
