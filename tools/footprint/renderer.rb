@@ -1,8 +1,4 @@
 class Renderer
-  require 'ruby_units'
-  require 'helper'
-  require 'units'
-  
   include Helper
 
   def initialize
@@ -12,7 +8,7 @@ class Renderer
 
   def render(element)
     element.render_with(self) if element.respond_to?(:render_with)
-    
+
     @line
   end
 
@@ -20,7 +16,7 @@ class Renderer
     @line = tag_name << "["
     @first_unit = true
   end
-  
+
   def close_tag(tag_name)
     @line << "]"
   end
@@ -29,17 +25,23 @@ class Renderer
   def<<(thing)
     render_attribute(thing)
   end
-  
+
   def render_attribute(thing)
     
     unless thing.nil?
       
       if thing.is_a?(Unit)
         append_to_line(quote(thing >> 'zil').scalar.to_i)
+      puts ":#{val}"
+      @line << "#{val}"
+    elsif thing.is_a?(String)
+      @line << quote(thing)
       elsif thing.respond_to?(:each)
         thing.each do |other_thing|
           self << other_thing
         end
+    elsif thing.respond_to?(:render_with)
+      thing.render_with(self)
       else
         append_to_line(thing.to_s)
       end
@@ -49,7 +51,7 @@ class Renderer
   end
   
     
-  def line 
+  def line
     @line
   end
   

@@ -5,6 +5,8 @@ class Module
       setter = "#{symbol}=".to_sym
       variable = "@#{symbol}".to_sym
 
+      instance_variable_set(variable, default_value)
+
       define_method getter do
         if instance_variable_defined? variable
           instance_variable_get(variable) || default_value

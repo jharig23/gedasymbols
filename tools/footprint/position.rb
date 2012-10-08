@@ -3,7 +3,11 @@ class Position
 
   attr x: Unit("0 mil"), y: Unit("0 mil")
 
- def element_name
+  def self.origin
+    Position.new
+  end
+
+  def element_name
     "Position"
   end
 
