@@ -3,6 +3,7 @@ class Renderer
   
   def initialize
     @line = ''
+    @rendered_element = ''
   end
 
   def render(element)
@@ -10,13 +11,23 @@ class Renderer
     @line
   end
 
-  def open_tag(tag_name)
+  def open_line(tag_name)
     @line = tag_name << "["
     @first_unit = true
   end
 
-  def close_tag(tag_name)
+  def close_line(tag_name)
     @line << "]"
+    append_line(@line)
+    
+  end
+  
+  def append_line(line)
+    @rendered_element << "#{line}\n"
+  end
+
+  def rendered_element
+    @rendered_element
   end
 
   def<<(thing)
