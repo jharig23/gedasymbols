@@ -9,9 +9,15 @@ class Pad
   attr :number => 0
   attr :flags => ""
 
+  def initialize(hash = {})
+    hash.each do |key, value|
+      send("#{key}=".to_sym, value)
+    end
+  end
+
   def render_with(renderer)
     renderer.open_line("Pad")
-    renderer << [self.p1, self.p2, self.thickness, 
+    renderer << [self.p1, self.p2, self.thickness,
                  self.clearance, self.mask_width, self.name,
                  quoted(self.number), self.flags]
     renderer.close_line("Pad")
