@@ -14,32 +14,11 @@ require_relative 'pad-line'
 require_relative 'pin'
 require_relative 'line'
 require_relative 'arc'
+require_relative 'quad-package.rb'
 
 
 renderer = Renderer.new
-
-e = Element.new(:name => "Test")
-
-pad_line_params = {
-  :number_of_pads => 7,
-  :pad_thickness => Unit("8 mil"),
-  :pad_clearance => Unit("8 mil"),
-  :pad_mask_width => Unit("8 mil"),
-  :positive_pad_length => Unit("15 mil"),
-  :pad_2_pad_distance => Unit("15 mil")}
-
-e.add_child(PadLine.new(pad_line_params.merge(:p1 => Position.origin,
-                                              :p2 => Position.new(x: Unit("0 mil"), y: Unit("4 mm")),
-                                              :first_pad_number => 1)))
-e.add_child(PadLine.new(pad_line_params.merge(:p1 => Position.new(x: Unit("0 mm"), y: Unit("4 mm")),
-                                              :p2 => Position.new(x: Unit("4 mm"), y: Unit("4 mm")),
-                                              :first_pad_number => 8)))
-e.add_child(PadLine.new(pad_line_params.merge(:p1 => Position.new(x: Unit("4 mm"), y: Unit("4 mm")),
-                                              :p2 => Position.new(x: Unit("4 mm"), y: Unit("0 mm")),
-                                              :first_pad_number => 15)))
-e.add_child(PadLine.new(pad_line_params.merge(:p1 => Position.new(x: Unit("4 mm"), y: Unit("0 mm")),
-                                              :p2 => Position.new(x: Unit("0 mm"), y: Unit("0 mm")),
-                                              :first_pad_number => 22)))
+e = QuadPackage.new
 
 renderer.render(e)
 

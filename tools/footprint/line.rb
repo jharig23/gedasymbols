@@ -1,4 +1,4 @@
-class Line
+class Line < PcbElement
   attr :p1 => Position.origin, :p2 => Position.origin
   attr :thickness => Unit("0 mil")
 
