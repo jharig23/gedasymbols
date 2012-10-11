@@ -25,7 +25,7 @@ pad_line_params = {
   :pad_thickness => Unit("8 mil"),
   :pad_clearance => Unit("8 mil"),
   :pad_mask_width => Unit("8 mil"),
-  :pad_length => Unit("15 mil"),
+  :positive_pad_length => Unit("15 mil"),
   :pad_2_pad_distance => Unit("15 mil")}
 
 e.add_child(PadLine.new(pad_line_params.merge(:p1 => Position.origin,
