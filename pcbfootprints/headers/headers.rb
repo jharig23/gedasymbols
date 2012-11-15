@@ -9,7 +9,8 @@ pitch_100mil = {
 }
 
 sizes = {
-  header_6pin_100mil: pitch_100mil.merge(number_of_pins: 6)
+  header_6pin_100mil: pitch_100mil.merge(number_of_pins: 6),
+  header_2pin_100mil: pitch_100mil.merge(number_of_pins: 2)
 }
 
 sizes.each do |key, hash|
