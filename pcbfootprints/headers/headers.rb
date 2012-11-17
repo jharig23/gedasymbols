@@ -2,8 +2,8 @@ require 'geda_footprint'
 include GedaFootprint
 
 pitch_100mil = {
-  pin_diameter: Unit('1.2 mm'),
-  drill_diameter: Unit('0.8 mm'),
+  pin_diameter: Unit('1.24 mm'),
+  drill_diameter: Unit('0.80 mm'),
   pitch: Unit('100 mil'),
   pin_rect: Rectangle.new(width: Unit('100 mil'))
 }
@@ -14,6 +14,6 @@ sizes = {
 }
 
 sizes.each do |key, hash|
-  file = "#{key.to_s}.rb"
+  file = "#{key.to_s}.fp"
   Renderer.new.render_to_file(Header.new(hash), file)
 end
