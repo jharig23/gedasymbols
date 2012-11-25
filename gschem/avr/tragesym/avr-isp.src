@@ -58,8 +58,8 @@ numslots=0
 #pinnr	seq	type	style	posit.	net	label	
 #-----------------------------------------------------
 1		io	line	l		MISO
-2		pwr	line	r		VCC
 3		io	line	l		SCK
-4		io	line	r		MOSI
 5		io	line	l		\_RESET\_
+2		pwr	line	r		VCC
+4		io	line	r		MOSI
 6		pwr	line	r		GND
