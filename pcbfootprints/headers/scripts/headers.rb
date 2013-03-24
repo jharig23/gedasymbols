@@ -10,10 +10,11 @@ pitch_100mil = {
 
 sizes = {
   header_6pin_100mil: pitch_100mil.merge(number_of_pins: 6),
-  header_2pin_100mil: pitch_100mil.merge(number_of_pins: 2)
+  header_2pin_100mil: pitch_100mil.merge(number_of_pins: 2),
+  header_16pin_100mil: pitch_100mil.merge(number_of_pins: 16)
 }
 
 sizes.each do |key, hash|
-  file = "#{key.to_s}.fp"
+  file = "../#{key.to_s}.fp"
   Renderer.new.render_to_file(Header.new(hash), file)
 end
