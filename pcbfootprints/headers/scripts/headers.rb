@@ -18,3 +18,4 @@ sizes.each do |key, hash|
   file = "../#{key.to_s}.fp"
   Renderer.new.render_to_file(Header.new(hash), file)
 end
+

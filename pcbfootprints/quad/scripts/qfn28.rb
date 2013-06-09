@@ -9,7 +9,9 @@ attrs = {
     pad_length: Unit('0.4 mm'),
     pitch: Unit('0.45 mm'),
     pad_rect: Rectangle.new(height: Unit('4 mm'), width: Unit('4 mm')),
-    pad_anchor: :start}
+    thermal_pad: Rectangle.new(height: Unit('2.40 mm'), width: Unit('2.40 mm')),
+    pad_anchor: :start
+  }
 }
 
 e = QuadPackage.new(attrs[:qfp28])
