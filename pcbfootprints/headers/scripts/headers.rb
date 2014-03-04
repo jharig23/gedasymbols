@@ -9,13 +9,13 @@ pitch_100mil = {
 }
 
 sizes = {
-  header_6pin_100mil: pitch_100mil.merge(number_of_pins: 6),
-  header_2pin_100mil: pitch_100mil.merge(number_of_pins: 2),
-  header_16pin_100mil: pitch_100mil.merge(number_of_pins: 16)
+  header_1x6pin_100mil: pitch_100mil.merge(cols: 1, rows: 6),
+  header_2x3pin_100mil: pitch_100mil.merge(cols: 2, rows: 3),
+  header_2pin_100mil: pitch_100mil.merge(cols: 2, rows: 1),
+  header_2x8pin_100mil: pitch_100mil.merge(cols: 2, rows: 4)
 }
 
 sizes.each do |key, hash|
   file = "../#{key.to_s}.fp"
   Renderer.new.render_to_file(Header.new(hash), file)
 end
-
