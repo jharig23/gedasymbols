@@ -10,7 +10,7 @@
 #   useful for address ports, busses, ...
 wordswap=yes
 rotate_labels=no
-sort_labels=yes
+sort_labels=no
 generate_pinseq=yes
 sym_width=1400
 pinwidthvertical=400
@@ -24,12 +24,12 @@ pinwidthhorizontal=400
 # use comment= if there are special information you want to add
 version=20060113 1
 name=SP232E
-device=
+device=SP232E
 refdes=U?
-footprint=
-description=
+footprint=soic16_narrow
+description=Exar RS232 ESD SOIC16
 documentation=
-author=
+author=James Harig
 dist-license=
 use-license=
 numslots=0
@@ -57,3 +57,19 @@ numslots=0
 #-----------------------------------------------------
 #pinnr	seq	type	style	posit.	net	label
 #-----------------------------------------------------
+1		pas	line	l		C1+
+2		pwr	line	l		V+
+3		pas	line	l		C1-
+4		pas	line	l		C2+
+5		pas	line	l		C2-
+6		pwr	line	l		V-
+7		out	line	l		T2OUT
+8		in	line	l		R2IN
+9		out	line	r		R2OUT
+10		in	line	r		T2IN
+11		in	line	r		T1IN
+12		out	line	r		R1OUT
+13		in	line	r		R1IN
+14		out	line	r		T1OUT
+15		pwr	line	r		GND
+16		pwr	line	r		VCC
