@@ -2,7 +2,7 @@ require 'geda_footprint'
 include GedaFootprint
 
 pitch_100mil = {
-  pin_diameter: Unit('2.5 mm'),
+  pin_diameter: Unit('2.25 mm'),
   drill_diameter: Unit('0.85 mm'),
   pitch: Unit('100 mil'),
   pin_rect: Rectangle.new(width: Unit('100 mil'))
