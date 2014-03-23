@@ -13,3 +13,14 @@ e = SmdTwoPad.new({ :pad_length => Unit("4.0 mm"),
                     :polarized_pin => 1})
 
 Renderer.new.render_to_file(e, "../smd_ecap_10mm_dia.fp")
+
+
+e = SmdTwoPad.new({ :pad_length => Unit("3.5 mm"),
+                    :pad_thickness => Unit("1.7 mm"),
+                    :pad_separation => Unit("2 mm"),
+                    :width => Unit("7 mm"),
+                    :height => Unit("7 mm"),
+                    :pad_anchor => :end,
+                    :polarized_pin => 1})
+
+Renderer.new.render_to_file(e, "../smd_ecap_6.3mm_dia.fp")
