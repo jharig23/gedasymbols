@@ -4,7 +4,7 @@ include GedaFootprint
 
 attrs = {
   :soic8_narrow => {
-    pad_length: Unit('1.4 mm'),
+    pad_length: Unit('1.7 mm'),
     pad_thickness: Unit('0.70 mm'),
     pitch: Unit('1.23 mm'),
     pad_rect: Rectangle.new(width: Unit('6.2 mm')),
